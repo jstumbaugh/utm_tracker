@@ -33,7 +33,11 @@ class PageViewsController < ApiController
 
     # Whitelist params
     def page_view_params
-      params.permit(:viewed_at, :utm_source, :utm_campaign, :utm_medium)
+      params.permit(*page_view_allowed_columns)
+    end
+
+    def page_view_allowed_columns
+      (PageView.column_names - ["id", "created_at", "updated_at"]).map(&:to_sym)
     end
 
     def set_page_view
