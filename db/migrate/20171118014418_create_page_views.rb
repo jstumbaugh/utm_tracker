@@ -7,6 +7,9 @@ class CreatePageViews < ActiveRecord::Migration[5.1]
       t.string   :utm_campaign
       t.string   :utm_term
       t.string   :utm_content
+      t.string   :url
+      t.string   :full_url
+      t.string   :referrer
       t.string   :ip
       t.string   :city
       t.string   :country_code
